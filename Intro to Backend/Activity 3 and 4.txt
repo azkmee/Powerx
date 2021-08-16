@@ -1,0 +1,67 @@
+Activity 3
+----------
+Select job, Round(AVG(salary)) as avg_salary 
+FROM payroll 
+GROUP BY job
+Limit 10;
+
+SELECT COUNT(userid)
+FROM payroll
+where salary LIKE '%.net';
+
+SELECT count(p.userid) 
+FROM payroll p 
+LEFT JOIN regist r ON r.userid = p.userid
+WHERE r.name IS NULL
+
+SELECT userid
+FROM payroll p
+LEFT JOIN regist r ON r.userid = p.userid
+WHERE p.email IS NULL or r.name IS NULL or p.salary > 13000;
+
+
+
+payroll
+------
+userid
+name
+job
+salary
+email
+
+user id pkey
+
+regist
+-----
+userud
+car
+
+pkey userid, car
+fkey payroll.userid
+
+
+
+Activity 4
+---------
+Discussion
+---------
+user1
+user2
+topic
+
+---------
+SELECT * 
+FROM Discussion
+WHERE user1 = 'Alice' AND user2 = 'Chuck' AND 
+topic NOT IN
+    (SELECT topic
+    FROM Discussion
+    WHERE user1 = user2)
+
+select topic that is query more than 10
+
+
+(SELECT topic, COUNT(*) as count
+FROM Discussion
+GROUP BY topic
+WHERE count > 10)

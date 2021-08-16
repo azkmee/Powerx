@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Airbnb: Holiday Rentals, Cabins, Beach Houses, Unique Homes &
+        </title>
+    </head>
+    <link rel="stylesheet" href="stylesheet.css"> </link>
+
+
+
+    <body>
+        <div class= "row row1">
+            <div class = 'col1'>
+                <div id="airbnb-logo">
+                    <h3>Airbnb logo </h3>
+                </div>
+                <!-- <p> </p> -->
+            </div>
+            
+            <!-- middle section -->
+            <div class= 'col2'> 
+                <div class='mid-col'>
+                    <a href=''>Places to stay</a>
+                </div>
+                <div class='mid-col'>
+                    <a href=''>Experiences</a>
+                </div>
+                <div class='mid-col'>
+                    <a href=''>Online Experiences</a>
+                </div>
+            </div>
+
+            <!-- last section -->
+            <div class='col3'>
+                <div class='last-col'>
+                    <a href=''>Become a host</a>
+                </div>
+                <div class='last-col'>
+                    <!-- World map -->
+                    <img id='globe' src='globe.png'>
+                </div>
+                <div class='last-col'>
+                    <!-- picture -->
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <img src='moon.png' id='moon'>
+            <h2 id='text'> Cool Mountains </h2>
+            <img src='mountain1.png' id='mountain1'>
+            <img src='mountain2.png' id='mountain2'>
+
+        </section>
+
+        <script>
+            const moon = document.getElementById('moon');
+            const text = document.getElementById('text');
+
+            window.addEventListener('scroll', function(){
+                let value = window.scrollY
+                console.log(value);
+                moon.style.top = value * 2.4 + 'px';
+                text.style.marginLeft = value * 2 + 'px';
+
+            })
+        
+
+        </script>
+
+
+        
+
+
+            
+        
+
+
+
+
+    </body>
+</html>

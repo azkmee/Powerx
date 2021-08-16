@@ -1,0 +1,1 @@
+alert("This is not the real Google webpage. \nHowever, this is available in 3 other languages.")
