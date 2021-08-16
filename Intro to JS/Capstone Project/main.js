@@ -5,7 +5,7 @@
  */
 
 const get_comic = (comic_num) => {
-    return fetch(`https://intro-to-js-playground.vercel.app/api/xkcd-comics/${comic_num}`
+    return fetch(`https://intro-to-js-playground.vercel.app/api/xkcd-comics/${comic_num}`, 
     ).then(
         (response) => {
             let items = response.json();
@@ -30,7 +30,6 @@ const get_comic = (comic_num) => {
  */
 function updateComic(comicNum, index) {
     get_comic(comicNum).then(data => {
-        console.log(data.num)
         document.getElementById(`comic${index}`).src = data.img;
         loader.style.display = 'none';
         document.getElementById(`comic${index}-title`).innerHTML = `#${data.num} - ${data.title}`;
@@ -88,8 +87,26 @@ function loaderActivate() {
 
 }
 
-const lastAvail = 2493;
-let n = 1;
+/**
+ * Loop to update the last available comic
+ * @param {*} {int} comic 
+ */
+const get2 = (num)=> {
+    // const controller = new AbortController
+        fetch(`https://intro-to-js-playground.vercel.app/api/xkcd-comics/${num}`
+        ).then((res) => res.json()).then((data) => {
+            // console.log(data)
+            lastAvail = num
+            get2(num+1)
+        })
+        .catch( (err)=> {
+            // controller.abort()
+            numInput.setAttribute("placeholder",`max pg. ${lastAvail}`);
+            main();
+        })
+}
+
+let lastAvail = 2493;
 
 const prev = document.getElementById('prev');
 const random = document.getElementById('random');
@@ -98,54 +115,61 @@ const numInput = document.getElementById('page-input');
 const goTo = document.getElementById("go-to");
 const inputError = document.getElementById("error-show");
 const loader = document.getElementById("loader-row");
-
-loaderActivate();
-updateComic(1,1);
-updateComic(2,2);
-updateComic(3,3);
-
 inputError.classList.add('hidden');
-loader.style.display = 'none';
-numInput.setAttribute("placeholder",`max pg. ${lastAvail}`);
 
-prev.addEventListener('click', () => {
-    n -= 3;
-    updateComicFrom(n);
-})
+function main() {
 
-next.addEventListener('click', () => {
-    n += 3;
-    updateComicFrom(n);
-})
-
-random.addEventListener('click', () => {
-    n = Math.floor(Math.random() * lastAvail);
-    updateComicFrom(n);
-})
-
-goTo.addEventListener('click', () => {
-    const n_ = +numInput.value;
-
-    if (n_ > lastAvail){
-        showError("That comic hasn't been released yet");
-        return;
-    } else if (n_<0){
-        showError("Please enter a positive comic number");
-        numInput.value = '';
-        return;
-    } else {
-        n = n_
-    }
+    let n = 1;
 
     loaderActivate();
+    updateComic(1,1);
+    updateComic(2,2);
+    updateComic(3,3);
     
     
-    updateComicFrom(n);
-})
+    loader.style.display = 'none';
+    numInput.setAttribute("placeholder",`max pg. ${lastAvail}`);
+    
+    prev.addEventListener('click', () => {
+        n -= 3;
+        updateComicFrom(n);
+    })
+    
+    next.addEventListener('click', () => {
+        n += 3;
+        updateComicFrom(n);
+    })
+    
+    random.addEventListener('click', () => {
+        n = Math.floor(Math.random() * lastAvail);
+        updateComicFrom(n);
+    })
+    
+    goTo.addEventListener('click', () => {
+        const n_ = +numInput.value;
+    
+        if (n_ > lastAvail){
+            showError("That comic hasn't been released yet");
+            return;
+        } else if (n_<0){
+            showError("Please enter a positive comic number");
+            numInput.value = '';
+            return;
+        } else {
+            n = n_
+        }
+    
+        loaderActivate();
+        
+        
+        updateComicFrom(n);
+    })
+    
+    numInput.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter'){
+            goTo.click();
+        }
+    })
+}
 
-numInput.addEventListener('keyup', function(event) {
-    if (event.key === 'Enter'){
-        goTo.click();
-    }
-})
-
+get2(lastAvail);
