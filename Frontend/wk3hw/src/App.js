@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { LoginPage } from './pages/loginPage';
+import { Marketplace } from './pages/marketplace';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App bg-white">
+      {/* <header className="App-header">
+        
+      </header> */}
+      {/* <LoginPage id='field'>
+          
+        </LoginPage> */}
+
+      <Marketplace/>
     </div>
   );
 }
