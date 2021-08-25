@@ -1,7 +1,9 @@
 import React from 'react'
 import { Listings } from "../components/listings"
-import { ShoppingCartItem } from '../components/shoppingcart';
 import { v4 as uuid } from 'uuid'
+import { EmptyShoppingCart } from '../components/emptycart';
+import { ListingCart } from '../components/listingcart';
+import { ShoppingCartHeader } from '../components/shoppingcardheader';
 
 const getListings = (page=1) =>
   fetch(`https://ecomm-service.herokuapp.com/marketplace?page=${page}`).then((res) => res.json());
@@ -46,12 +48,28 @@ export const Marketplace = () => {
         setCarts([...theRest, toUpdate])
     }
 
-    const calculateCartTotal = ()=> {
-        let total = 0;
-        carts.map(item => {total = total + (item.quantity * item.price)})
+    // const deleteFromCart = (id) => {
+    //     let toUpdate = carts.filter(item => item.key == id)
+    //     const theRest = carts.filter(item => item.key != id)
 
-        return total;
-    }
+    //     if (toUpdate[0].quantity === 1) {
+    //         setCarts([...theRest])
+    //     } else {
+    //         const quantity = toUpdate[0].quantity - 1
+    //         toUpdate = {
+    //             ...toUpdate[0],
+    //             quantity
+    //         }
+    //         setCarts([...theRest, toUpdate])
+    //     }
+    // }
+
+    // const calculateCartTotal = ()=> {
+    //     let total = 0;
+    //     carts.map(item => {total = total + (item.quantity * item.price)})
+
+    //     return total;
+    // }
 
     
     // fetchListing()
@@ -61,6 +79,7 @@ export const Marketplace = () => {
     <div className='bg-gray-50 lg:flex'>
         <div className='flex-1'>
             <div className='max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8'>
+                
                 {/* header */}
                 <div className="sm:flex sm:flex-col sm:align-center mb-12">
                     <h1 className="text-5xl font-extrabold text-gray-900 sm:text-center">
@@ -94,51 +113,13 @@ export const Marketplace = () => {
         
 
         {/* cart */}
-        <div className="
-                flex-initial
-                bg-white
-                w-full
-                lg:max-w-md
-                border-b border-gray-100
-            ">
-            <div className="flex flex-col h-full">
-                <div className="py-6 px-4 bg-pink-700 sm:px-6">
-                    <div className="flex items-center justify-between">
-                        <h2 className="text-lg font-medium text-white">Your shopping cart</h2>
-                    </div>
-                    <div className="mt-1">
-                        <p className="text-sm text-pink-300">
-                            Listing added into your shopping cart
-                        </p>
-                    </div>
-                </div>
-            {carts && 
-                carts.map(cart => (
-                    <ShoppingCartItem 
-                        title= {cart.title}
-                        price= {cart.price}
-                        imgUrl= {cart.imgUrl}
-                        quantity= {cart.quantity}
-                        key= {cart.key}
-                        />
-                )
-                    
-                )
-                }
-            {carts && 
-                <div class="
-                flex-shrink-0
-                px-4
-                py-4
-                flex
-                justify-end
-                border-t border-gray-200
-              ">
-                    <span>Total <span class="text-3xl">$<span>{calculateCartTotal()}</span></span></span>
-                    </div>}
-                    </div>
-        </div>        
-    
+        <ShoppingCartHeader>
+            { carts !== [] ? 
+                <ListingCart
+                    setCarts = {setCarts}
+                    carts = {carts}/> : 
+                <EmptyShoppingCart/> }
+        </ShoppingCartHeader>
     </div>
     )
 }
