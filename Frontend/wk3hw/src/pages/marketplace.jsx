@@ -17,14 +17,7 @@ export const Marketplace = () => {
         getListings().then((listings) => {
             // console.log(listings);
             setListings(listings)})
-    }
-
-    React.useEffect(()=> {
-        console.log(carts)
-        console.log(carts !== [])
-    }, [carts])
-
-    
+    }  
 
     const addToCart = (newItem) => {
         let toUpdate = carts.filter(item => item.key == newItem.key)

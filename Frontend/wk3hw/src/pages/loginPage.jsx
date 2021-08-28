@@ -4,12 +4,15 @@ import { TextInput } from "../components/text-input"
 import { Field } from "../components/field"
 import { Label } from "../components/label"
 import { Button } from "../components/button"
+import { useLogin } from '../service/auth.service'
 
 
-export const LoginPage = (id, ...props) => {
+export const LoginPage = (...props) => {
 
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
+
+    const invokeLogin = useLogin();
 
     return (
         <main className="bg-gray-50 p-6 sm:p-12 min-h-screen">
@@ -21,6 +24,7 @@ export const LoginPage = (id, ...props) => {
                         onSubmit = {(e)=> {
                             e.preventDefault();
                             console.log(email, password)
+                            invokeLogin(email, password)
                             //fetch
                         }}>
                         <Field fieldId = 'Email'>
