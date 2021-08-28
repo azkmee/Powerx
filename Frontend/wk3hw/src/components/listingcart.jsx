@@ -17,6 +17,8 @@ export const ListingCart = (props) => {
             }
             props.setCarts([...theRest, toUpdate])
         }
+
+        
     }
 
     const calculateCartTotal = ()=> {

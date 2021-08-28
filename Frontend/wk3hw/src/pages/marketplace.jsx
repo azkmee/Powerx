@@ -19,6 +19,11 @@ export const Marketplace = () => {
             setListings(listings)})
     }
 
+    React.useEffect(()=> {
+        console.log(carts)
+        console.log(carts !== [])
+    }, [carts])
+
     
 
     const addToCart = (newItem) => {
@@ -47,30 +52,6 @@ export const Marketplace = () => {
         
         setCarts([...theRest, toUpdate])
     }
-
-    // const deleteFromCart = (id) => {
-    //     let toUpdate = carts.filter(item => item.key == id)
-    //     const theRest = carts.filter(item => item.key != id)
-
-    //     if (toUpdate[0].quantity === 1) {
-    //         setCarts([...theRest])
-    //     } else {
-    //         const quantity = toUpdate[0].quantity - 1
-    //         toUpdate = {
-    //             ...toUpdate[0],
-    //             quantity
-    //         }
-    //         setCarts([...theRest, toUpdate])
-    //     }
-    // }
-
-    // const calculateCartTotal = ()=> {
-    //     let total = 0;
-    //     carts.map(item => {total = total + (item.quantity * item.price)})
-
-    //     return total;
-    // }
-
     
     // fetchListing()
     if (!listings) {fetchListing()}
@@ -114,7 +95,7 @@ export const Marketplace = () => {
 
         {/* cart */}
         <ShoppingCartHeader>
-            { carts !== [] ? 
+            { carts.length !== 0 ? 
                 <ListingCart
                     setCarts = {setCarts}
                     carts = {carts}/> : 
