@@ -6,7 +6,7 @@ export const Button = (props) => {
             type={props.type} 
             onClick={props.onClick}
             className={cn(`
-                w-full
+                w-1/5
                 inline-flex
                 justify-center
                 items-center
@@ -16,7 +16,7 @@ export const Button = (props) => {
                 shadow-sm
                 text-sm
                 font-medium
-                rounded-md
+                rounded-lg
                 text-white
                 bg-pink-600
                 hover:bg-pink-700

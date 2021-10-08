@@ -13,6 +13,26 @@ export const movieReducers = (state, event) => {
                 ...state,
                 currentMovielists: null
             }
+        case action.GET_MOVIE_BY_ID_SUCCESS:
+            return {
+                ...state,
+                currentMovieById: null
+            }
+        case action.GET_MOVIE_BY_ID_ERROR:
+            return {
+                ...state,
+                currentMovieById: null
+            }
+        case action.GET_COMMENTS_BY_ID_SUCCESS:
+            return {
+                ...state,
+                currentCommentById: null
+            }
+        case action.GET_COMMENTS_BY_ID_ERROR:
+            return {
+                ...state,
+                currentCommentById: null
+            }
 
 
         default:

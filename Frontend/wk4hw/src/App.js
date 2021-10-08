@@ -7,6 +7,9 @@ import { LoginPage } from './pages/loginPage';
 import { Button } from './components/button';
 import { Route, useHistory } from 'react-router-dom'
 import { MoviePage } from './pages/moviePage';
+import { MovieByIdPage } from './pages/moveByIdPage';
+import { Router } from 'react-router-dom'
+import { Switch } from 'react-router'
 
 
 function App() {
@@ -14,61 +17,53 @@ function App() {
 
   const  history = useHistory()
   
-  // if (auth.type == keywords.AUTHENTICATED) {
-  //   history.push('/movie')
-  // } else {
-  //   history.push('/login')
-  // }
+  if (auth.type == keywords.AUTHENTICATED) {
+    history.push('/movies')
+  } 
 
   return (
-    <div className="App bg-white">
+    <div className="App bg-white mt-5">
       <div className=''>
 
       </div>
-    {/* {auth.type === keywords.NOT_AUTHENTICATED_NOT_REGISTERED ?  
+    {auth.type === keywords.NOT_AUTHENTICATED ?  
+    <div>
+      <Button 
+      onClick ={()=> {
+        history.push('/register')
+        }}> 
+      Register 
+      </Button>
       <Button 
         onClick ={()=> {
           history.push('/login')
           }}> 
         Login 
-      </Button> :
-      auth.type === keywords.NOT_AUTHENTICATED_REGISTERED ? 
+      </Button> 
+      </div>
+      :
       <Button 
         onClick ={()=> {
-          history.push('/register')
-          }}> 
-        Register 
-      </Button> :
-      <Button 
-        onClick ={()=> {
-          history.push('/login')
+          auth.logout()
           }}> 
         Logout 
       </Button> 
-    } */}
-
-
-    
+    }    
       
-
-    <Route path='/login'>
-      <LoginPage />
-    </Route>
-    <Route path='/register'>
-      <RegisterPage/>
-    </Route>
-    <Route path='/movies'>
-      <MoviePage />
-    </Route>
-
-
-    {/* {auth.type === keywords.NOT_AUTHENTICATED_NOT_REGISTERED ?  
-      <RegisterPage/> :
-      auth.type === keywords.NOT_AUTHENTICATED_REGISTERED ?
-      <LoginPage /> :
-      'Hello'
-    } */}
-    
+      <Switch>
+        <Route path='/login'>
+          <LoginPage />
+        </Route>
+        <Route path='/register'>
+          <RegisterPage/>
+        </Route>
+        <Route path='/movies/:id'>
+          <MovieByIdPage />
+        </Route>
+        <Route path='/movies'>
+          <MoviePage />
+        </Route>
+      </Switch>   
 
   </div>
     

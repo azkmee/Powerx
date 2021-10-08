@@ -11,20 +11,19 @@ export const authReducer = (state, event) => {
         case action.LOGOUT:
             return {
                 accessToken: '',
-                type: keywords.NOT_AUTHENTICATED_REGISTERED,
+                type: keywords.NOT_AUTHENTICATED
             }
 
         case action.REGISTER_SUCESS:
-            console.log('reducer')
             return{
                 ...state,
-                type: keywords.NOT_AUTHENTICATED_REGISTERED
+                type: keywords.NOT_AUTHENTICATED
             }
 
         case action.REGISTER_ERROR:
             return{
                 ...state,
-                type: keywords.NOT_AUTHENTICATED_NOT_REGISTERED
+                type: keywords.NOT_AUTHENTICATED
             }
     
         default:

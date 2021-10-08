@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from './service/auth.service'
 import { BrowserRouter } from 'react-router-dom'
+import { MoviesProvider } from './service/fetch.service';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <AuthProvider>
+      <MoviesProvider>
       <App />
+      </MoviesProvider>
     </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
