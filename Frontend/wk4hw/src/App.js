@@ -7,7 +7,7 @@ import { LoginPage } from './pages/loginPage';
 import { Button } from './components/button';
 import { Route, useHistory } from 'react-router-dom'
 import { MoviePage } from './pages/moviePage';
-import { MovieByIdPage } from './pages/moveByIdPage';
+import { MovieByIdPage } from './pages/movieByIdPage';
 import { Router } from 'react-router-dom'
 import { Switch } from 'react-router'
 

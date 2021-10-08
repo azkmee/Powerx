@@ -56,7 +56,6 @@ export const useFetchMovieById = () => {
     return function invokeFetchMovieById(id) {
         return fetchMovieById(id)
             .then(res => {
-                console.log(res)
                 getMovieByIdSuccess(res)
             }).catch(err => {
                 getMovieByIdError(err)
@@ -71,7 +70,6 @@ export const useFetchCommentsById = () => {
     return function invokeFetchMovieById(id) {
         return fetchCommentsById(id)
             .then(res => {
-                console.log(res)
                 getCommentsByIdSuccess(res)
             }).catch(err => {
                 getCommentsByIdError(err)

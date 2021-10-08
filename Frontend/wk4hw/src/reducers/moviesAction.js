@@ -1,15 +1,11 @@
 import React, { useReducer } from "react"
 import { actionTypes as action } from "./actionTypes"
 import { keywords } from './keywords'
-import { movieReducers } from "./moviesReducers"
+import { movieReducers, defaultState } from "./moviesReducers"
 
 
 export const useMovieState = () => {
-    const defaultState = {
-        currentMovielists : null,
-        currentMovieById: null,
-        currentCommentById :null
-    }
+    
     const [state, dispatch] = useReducer(movieReducers, defaultState);
 
     const getMoviesSuccess = (data) => {

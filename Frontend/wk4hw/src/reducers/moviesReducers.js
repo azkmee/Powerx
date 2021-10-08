@@ -1,6 +1,13 @@
 import { actionTypes as action } from "./actionTypes"
 import { keywords } from './keywords'
 
+export const defaultState = {
+    currentMovielists : null,
+    currentMovieById: null,
+    currentCommentById :null
+}
+
+
 export const movieReducers = (state, event) => {
     switch (event.type) {
         case action.GET_MOVIES_SUCCESS:
@@ -16,7 +23,7 @@ export const movieReducers = (state, event) => {
         case action.GET_MOVIE_BY_ID_SUCCESS:
             return {
                 ...state,
-                currentMovieById: null
+                currentMovieById: event.payload.data
             }
         case action.GET_MOVIE_BY_ID_ERROR:
             return {
@@ -26,7 +33,7 @@ export const movieReducers = (state, event) => {
         case action.GET_COMMENTS_BY_ID_SUCCESS:
             return {
                 ...state,
-                currentCommentById: null
+                currentCommentById: event.payload.data
             }
         case action.GET_COMMENTS_BY_ID_ERROR:
             return {
