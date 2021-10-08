@@ -1,0 +1,12 @@
+
+//action type
+
+export const actionTypes = {
+    LOGIN : 'LOGIN',
+    LOGOUT : 'LOGOUT',
+    REGISTER_SUCESS : 'REGISTER_SUCESS',
+    REGISTER_ERROR : 'REGISTER_ERROR',
+    GET_MOVIES_SUCCESS:'GET_MOVIES_SUCCESS',
+    GET_MOVIES_ERROR:'GET_MOVIES_ERROR',
+
+}
