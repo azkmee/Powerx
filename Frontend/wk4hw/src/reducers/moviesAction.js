@@ -45,6 +45,12 @@ export const useMovieState = () => {
             payload: {data}
         })
     }
+    const resetState = () => {
+        dispatch({
+            type:action.RESET_STATE,
+
+        })
+    }
 
 
     return {
@@ -55,5 +61,6 @@ export const useMovieState = () => {
         getMovieByIdError,
         getCommentsByIdSuccess,
         getCommentsByIdError,
+        resetState,
     }
 }

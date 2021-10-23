@@ -3520,7 +3520,7 @@
     "isobject" "^3.0.0"
     "static-extend" "^0.1.1"
 
-"classnames@^2.3.1":
+"classnames@^2.2.5", "classnames@^2.3.1":
   "version" "2.3.1"
 
 "clean-css@^4.2.3":
@@ -9867,7 +9867,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@^15.0.0", "prop-types@^15.6.2", "prop-types@^15.7.2":
+"prop-types@^15.0.0", "prop-types@^15.6.1", "prop-types@^15.6.2", "prop-types@^15.7.2":
   "integrity" "sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ=="
   "resolved" "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz"
   "version" "15.7.2"
@@ -10151,6 +10151,11 @@
   dependencies:
     "prop-types" "^15.7.2"
 
+"react-hook-form@^7.17.2":
+  "integrity" "sha512-oBaHwlYnbpzSFdNrs43QpcM+K2A0kUeNjV86ECYkCimlR1Ctl+tz4oQQd9plfGYkO7PJGLVMOVpUtL5EHjAcYQ=="
+  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.17.2.tgz"
+  "version" "7.17.2"
+
 "react-icons@^3.8.0":
   "integrity" "sha512-JRgiI/vdF6uyBgyZhVyYJUZAop95Sy4XDe/jmT3R/bKliFWpO/uZBwvSjWEdxwzec7SYbEPNPck0Kff2tUGM2Q=="
   "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-3.11.0.tgz"
@@ -10284,6 +10289,14 @@
   "resolved" "https://registry.npmjs.org/react-simple-code-editor/-/react-simple-code-editor-0.10.0.tgz"
   "version" "0.10.0"
 
+"react-star-rating-component@^1.4.1":
+  "integrity" "sha512-i0YEvQzToS0s0GDkxn01Jy4EeLpVEyh023NXJTJ+/1+xkvhpACyD4d1YeBhYWZab53ppUnUxs5gmp75gJr3khA=="
+  "resolved" "https://registry.npmjs.org/react-star-rating-component/-/react-star-rating-component-1.4.1.tgz"
+  "version" "1.4.1"
+  dependencies:
+    "classnames" "^2.2.5"
+    "prop-types" "^15.6.1"
+
 "react-styleguidist@^11.1.7":
   "integrity" "sha512-kiLXbRWoc7hzY9h8rAltYMkby7PIBEj0+nG2s6I/riCwpHPF7GvwM5U1tPCWiveCI8nqYSKAfWSErvUH8eVNDQ=="
   "resolved" "https://registry.npmjs.org/react-styleguidist/-/react-styleguidist-11.1.7.tgz"
@@ -10353,7 +10366,7 @@
     "webpack-dev-server" "^3.11.0"
     "webpack-merge" "^4.2.2"
 
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0", "react@^17.0.2", "react@>= 0.14.0", "react@>= 16", "react@>=15", "react@>=16.0.0", "react@>=16.8", "react@17.0.2":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0", "react@^16.2.0", "react@^16.8.0 || ^17", "react@^17.0.2", "react@>= 0.14.0", "react@>= 16", "react@>=15", "react@>=16.0.0", "react@>=16.8", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz"
   "version" "17.0.2"

@@ -17,9 +17,7 @@ function App() {
 
   const  history = useHistory()
   
-  if (auth.type == keywords.AUTHENTICATED) {
-    history.push('/movies')
-  } 
+
 
   return (
     <div className="App bg-white mt-5">
@@ -60,7 +58,7 @@ function App() {
         <Route path='/movies/:id'>
           <MovieByIdPage />
         </Route>
-        <Route path='/movies'>
+        <Route path='/'>
           <MoviePage />
         </Route>
       </Switch>   

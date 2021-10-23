@@ -23,6 +23,15 @@ const fetchCommentsById = async (id) => {
     })
 }
 
+const postComments = async (body, accessToken) => {
+    return fetchAPI({
+        url:`${BASE_URL}/movie/comment`,
+        method:"POST",
+        accessToken,
+        bodySend:body,
+    })
+}
+
 export const MoviesContext = React.createContext();
 
 export const MoviesProvider = ({children}) => {
@@ -75,5 +84,24 @@ export const useFetchCommentsById = () => {
                 getCommentsByIdError(err)
                 console.log(err)
             })
+    }
+}
+
+export const usePostCommentsById = () => {
+    const auth = useContext(AuthContext)
+    console.log(auth, 'auth')
+    return function invokePostComment(body) {
+        if(auth.accessToken){
+            return postComments(body, 'bearer ' + auth.accessToken)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        } else  {
+            console.log('not authenticated')
+        }
+        
     }
 }

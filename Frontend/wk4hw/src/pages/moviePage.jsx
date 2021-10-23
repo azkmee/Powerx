@@ -17,7 +17,7 @@ export const MoviePage = ({
     const movieStateDispatch = useContext(MoviesContext)
 
     const history = useHistory()
-    const { currentMovielists, getMoviesReset } = movieStateDispatch
+    const { currentMovielists, resetState } = movieStateDispatch
     
     const [ currentPage, setCurrentPage ] = useState(0)
     const [ movies, setMovies ] = useState([])
@@ -29,6 +29,7 @@ export const MoviePage = ({
     const fetchMovies = useFetchMovies()
 
     useEffect( () => {
+        resetState()
         fetchMovies(currentPage)
         setLoading(true)
     }, [])
@@ -48,6 +49,7 @@ export const MoviePage = ({
     }, [currentMovielists])
 
     useEffect(() => {
+        resetState()
         fetchMovies(currentPage)
         setLoading(true)
     },[currentPage])

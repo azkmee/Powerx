@@ -40,6 +40,11 @@ export const movieReducers = (state, event) => {
                 ...state,
                 currentCommentById: null
             }
+        case action.RESET_STATE:
+            return {
+                currentMovielists : null,
+                currentCommentById :null
+            }
 
 
         default:

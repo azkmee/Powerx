@@ -5,10 +5,12 @@ export const fetchAPI = async ({
     url,
     method="GET",
     accessToken=false,
+    bodySend,
 }) => {
     let headers = {
         "Content-Type":"application/json",
     }
+    let body= null;
 
     if(accessToken){
         headers = {
@@ -16,9 +18,16 @@ export const fetchAPI = async ({
             "Authorization":accessToken
         }
     }
+    if(bodySend){
+        body = JSON.stringify({
+          ...bodySend,  
+        })
+    }
+    
     return fetch(url, {
         method,
         headers,
+        body,
     })
     .then(res => res.json())
     .catch(err=>{
